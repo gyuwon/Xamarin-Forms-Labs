@@ -13,8 +13,9 @@ namespace Xamarin.Forms.Labs.Sample.ViewModel
 
         private static string[] LoremIpsumWords = LoremIpsum.Split(' ');
 
+        private double _height;
         private Point _position;
-        private Size _size;
+        private Size _contentSize;
         private Stack<InfiniteScrollItem> _dataSource;
         private ObservableCollection<InfiniteScrollItem> _items;
         private long _elapsedToAdd;
@@ -41,12 +42,12 @@ namespace Xamarin.Forms.Labs.Sample.ViewModel
                     {
                         return;
                     }
-                    if (_size.Height < _position.Y + _threshold)
+                    if (_contentSize.Height < _position.Y + _height + _threshold)
                     {
                         IsBusy = true;
                         try
                         {
-                            await LoadItemsAsync(count: 20);
+                            await LoadItemsAsync(count: 10);
                         }
                         finally
                         {
@@ -82,16 +83,22 @@ namespace Xamarin.Forms.Labs.Sample.ViewModel
             }
         }
 
+        public double Height
+        {
+            get { return _height; }
+            set { SetProperty(ref _height, value); }
+        }
+
         public Point Position
         {
             get { return _position; }
             set { SetProperty(ref _position, value); }
         }
 
-        public Size Size
+        public Size ContentSize
         {
-            get { return _size; }
-            set { SetProperty(ref _size, value); }
+            get { return _contentSize; }
+            set { SetProperty(ref _contentSize, value); }
         }
 
         public long ElapsedToAdd

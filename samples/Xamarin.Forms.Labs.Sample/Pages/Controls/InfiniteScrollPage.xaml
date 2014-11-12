@@ -13,9 +13,10 @@
       <ColumnDefinition Width="*" />
     </Grid.ColumnDefinitions>
 
-    <controls:ExtendedScrollView ContentSize="{Binding Size}"
+    <controls:ExtendedScrollView Height="{Binding Height}"
+                                 ContentSize="{Binding ContentSize}"
                                  Position="{Binding Position, Mode=TwoWay}">
-      <StackLayout>
+      <StackLayout Spacing="0">
         <Button VerticalOptions="Start"
                 HorizontalOptions="Center"
                 Command="{Binding InitializeCommand}"
