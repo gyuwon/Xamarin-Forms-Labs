@@ -45,9 +45,9 @@
               HorizontalOptions="Start"
               BackgroundColor="#7f000000"
               BorderRadius="10"
-              WidthRequest="150"
+              WidthRequest="175"
               TextColor="#ffffffff"
-              Text="{Binding ElapsedToAdd, StringFormat='{0} ms per item'}" />
+              Text="{Binding ElapsedToAdd, StringFormat='{0:0.00} ms per item'}" />
     </StackLayout>
   </Grid>
 </ContentPage>

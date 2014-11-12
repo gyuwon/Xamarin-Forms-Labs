@@ -18,7 +18,7 @@ namespace Xamarin.Forms.Labs.Sample.ViewModel
         private Size _contentSize;
         private Stack<InfiniteScrollItem> _dataSource;
         private ObservableCollection<InfiniteScrollItem> _items;
-        private long _elapsedToAdd;
+        private double _elapsedToAdd;
         private double _threshold;
 
         public InfiniteScrollViewModel()
@@ -74,13 +74,15 @@ namespace Xamarin.Forms.Labs.Sample.ViewModel
         private async Task LoadItemsAsync(int count)
         {
             await Task.Delay(100);
+            var observations = new List<double>();
             for (int i = 0; i < count && _dataSource.Any(); i++)
             {
                 var stopwatch = Stopwatch.StartNew();
                 _items.Add(_dataSource.Pop());
                 stopwatch.Stop();
-                ElapsedToAdd = stopwatch.ElapsedMilliseconds;
+                observations.Add(stopwatch.ElapsedMilliseconds);
             }
+            ElapsedToAdd = observations.Average();
         }
 
         public double Height
@@ -101,7 +103,7 @@ namespace Xamarin.Forms.Labs.Sample.ViewModel
             set { SetProperty(ref _contentSize, value); }
         }
 
-        public long ElapsedToAdd
+        public double ElapsedToAdd
         {
             get { return _elapsedToAdd; }
             private set { SetProperty(ref _elapsedToAdd, value); }
