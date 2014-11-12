@@ -72,6 +72,9 @@
     <Compile Include="Pages\Controls\GestureSample.xaml.cs">
       <DependentUpon>GestureSample.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Controls\InfiniteScrollPage.xaml.cs">
+      <DependentUpon>InfiniteScrollPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Controls\PopupPage.xaml.cs">
       <DependentUpon>PopupPage.xaml</DependentUpon>
     </Compile>
@@ -112,8 +115,10 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CameraViewModel.cs" />
     <Compile Include="ViewModel\GestureSampleVM.cs" />
+    <Compile Include="ViewModel\InfiniteScrollViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\RepeaterViewViewModel.cs" />
+    <Compile Include="ViewModel\InfiniteScrollItem.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="Pages\Controls\ExtendedLabelPage.xaml.cs">
       <DependentUpon>ExtendedLabelPage.xaml</DependentUpon>
@@ -358,6 +363,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Controls\CarouselSample.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Controls\InfiniteScrollPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

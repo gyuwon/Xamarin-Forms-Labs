@@ -13,7 +13,7 @@ namespace Xamarin.Forms.Labs.Sample
 {
     using XLabs;
 
-    public class WaveRecorderViewModel : ViewModel
+    public class WaveRecorderViewModel : Xamarin.Forms.Labs.Mvvm.ViewModel
     {
         private string fileName;
         private int sampleRate;
@@ -64,11 +64,10 @@ namespace Xamarin.Forms.Labs.Sample
                                     this.audioStream.OnBroadcast -= audioStream_OnBroadcast;
                                 }
                             });
-
                 },
-                () => this.RecordingEnabled && 
+                () => this.RecordingEnabled &&
                     this.audioStream.SupportedSampleRates.Contains(this.SampleRate) &&
-                    !this.IsRecording && 
+                    !this.IsRecording &&
                     device.FileManager != null
                 );
 
@@ -89,7 +88,7 @@ namespace Xamarin.Forms.Labs.Sample
                 );
         }
 
-        void audioStream_OnBroadcast(object sender, EventArgs<byte[]> e)
+        private void audioStream_OnBroadcast(object sender, EventArgs<byte[]> e)
         {
             System.Diagnostics.Debug.WriteLine("Microphone recorded {0} bytes.", e.Value.Length);
         }

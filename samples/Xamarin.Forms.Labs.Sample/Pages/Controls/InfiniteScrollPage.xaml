@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:Xamarin.Forms.Labs.Sample.ViewModel;assembly=Xamarin.Forms.Labs.Sample"
+             xmlns:controls="clr-namespace:Xamarin.Forms.Labs.Controls;assembly=Xamarin.Forms.Labs"
+             Padding="5,0"
+             x:Class="Xamarin.Forms.Labs.Sample.Pages.Controls.InfiniteScrollPage">
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*" />
+    </Grid.ColumnDefinitions>
+
+    <controls:ExtendedScrollView ContentSize="{Binding Size}"
+                                 Position="{Binding Position, Mode=TwoWay}">
+      <StackLayout>
+        <Button VerticalOptions="Start"
+                HorizontalOptions="Center"
+                Command="{Binding InitializeCommand}"
+                Text="Initialize" />
+        <controls:RepeaterView x:TypeArguments="vm:InfiniteScrollItem"
+                               Spacing="10"
+                               ItemsSource="{Binding Items}">
+          <controls:RepeaterView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <StackLayout BackgroundColor="#ffacacac"
+                             Padding="5">
+                  <Label Text="{Binding Id, StringFormat='Id: {0}'}" />
+                  <Label Text="{Binding Message}" />
+                </StackLayout>
+              </ViewCell>
+            </DataTemplate>
+          </controls:RepeaterView.ItemTemplate>
+        </controls:RepeaterView>
+      </StackLayout>
+    </controls:ExtendedScrollView>
+
+    <StackLayout InputTransparent="True"
+                 Padding="0,5">
+      <Button VerticalOptions="Start"
+              HorizontalOptions="Start"
+              BackgroundColor="#7f000000"
+              BorderRadius="10"
+              WidthRequest="150"
+              TextColor="#ffffffff"
+              Text="{Binding ElapsedToAdd, StringFormat='{0} ms per item'}" />
+    </StackLayout>
+  </Grid>
+</ContentPage>

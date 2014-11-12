@@ -27,7 +27,6 @@ namespace Xamarin.Forms.Labs.Sample
         /// </summary>
         public static void Init()
         {
-
             var app = Resolver.Resolve<IXFormsApp>();
             if (app == null)
             {
@@ -125,27 +124,35 @@ namespace Xamarin.Forms.Labs.Sample
                     case "texttospeech":
                         await mainPage.Navigation.PushAsync(new TextToSpeechPage());
                         break;
+
                     case "deviceextended":
                         await mainPage.Navigation.PushAsync(new ExtendedDeviceInfoPage(Resolver.Resolve<IDevice>()));
                         break;
+
                     case "phoneservice":
                         await mainPage.Navigation.PushAsync(new PhoneServicePage());
                         break;
+
                     case "geolocator":
                         await mainPage.Navigation.PushAsync(ViewFactory.CreatePage<GeolocatorViewModel>());
                         break;
+
                     case "camera":
                         await mainPage.Navigation.PushAsync(ViewFactory.CreatePage<CameraViewModel>());
                         break;
+
                     case "accelerometer":
                         await mainPage.Navigation.PushAsync(new AcceleratorSensorPage());
                         break;
+
                     case "display":
                         await mainPage.Navigation.PushAsync(new AbsoluteLayoutWithDisplayInfoPage(Resolver.Resolve<IDisplay>()));
                         break;
+
                     case "cache":
                         await mainPage.Navigation.PushAsync(ViewFactory.CreatePage<CacheServiceViewModel>());
                         break;
+
                     case "sound":
                         await mainPage.Navigation.PushAsync(ViewFactory.CreatePage<SoundServiceViewModel>());
                         break;
@@ -155,12 +162,15 @@ namespace Xamarin.Forms.Labs.Sample
                     case "fontmanager":
                         await mainPage.Navigation.PushAsync(new FontManagerPage(Resolver.Resolve<IDisplay>()));
                         break;
+
                     case "nfc":
                         await mainPage.Navigation.PushAsync(new NfcDevicePage());
                         break;
+
                     case "waverecorder":
                         await mainPage.Navigation.PushAsync(ViewFactory.CreatePage<WaveRecorderViewModel>());
                         break;
+
                     case "email":
                         await mainPage.Navigation.PushAsync(new EmailPage());
                         break;
@@ -204,6 +214,7 @@ namespace Xamarin.Forms.Labs.Sample
                 {"ImageGallery", typeof(ImageGalleryPage)},
                 {"Popup", typeof(PopupPage)},
                 {"RepeaterView", typeof(RepeaterViewPage)},
+                {"InfiniteScroll", typeof(InfiniteScrollPage)},
                 {"Segment", typeof(SegmentPage)},
                 {"Separator", typeof(SeparatorPage)},
                 {"WebImage", typeof(WebImagePage)},
@@ -280,9 +291,10 @@ namespace Xamarin.Forms.Labs.Sample
                 {
                     case TargetPlatform.Android:
                     case TargetPlatform.iOS:
-                        var item = (DictionaryEntry) e.SelectedItem;
+                        var item = (DictionaryEntry)e.SelectedItem;
                         result = (Type)item.Value;
                         break;
+
                     case TargetPlatform.WinPhone:
                         result = ((KeyValuePair<string, Type>)e.SelectedItem).Value;
                         break;
@@ -319,4 +331,3 @@ namespace Xamarin.Forms.Labs.Sample
         }
     }
 }
-
