@@ -69,6 +69,9 @@
     <Compile Include="Pages\Controls\ExtendedEntryPage.xaml.cs">
       <DependentUpon>ExtendedEntryPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Controls\FastInfiniteScrollPage.xaml.cs">
+      <DependentUpon>FastInfiniteScrollPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Controls\GestureSample.xaml.cs">
       <DependentUpon>GestureSample.xaml</DependentUpon>
     </Compile>
@@ -369,6 +372,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Pages\Controls\InfiniteScrollPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Pages\Controls\FastInfiniteScrollPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </EmbeddedResource>

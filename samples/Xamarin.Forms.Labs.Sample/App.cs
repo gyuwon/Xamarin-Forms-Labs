@@ -215,6 +215,7 @@ namespace Xamarin.Forms.Labs.Sample
                 {"Popup", typeof(PopupPage)},
                 {"RepeaterView", typeof(RepeaterViewPage)},
                 {"InfiniteScroll", typeof(InfiniteScrollPage)},
+                {"FastInfiniteScroll", typeof(FastInfiniteScrollPage)},
                 {"Segment", typeof(SegmentPage)},
                 {"Separator", typeof(SeparatorPage)},
                 {"WebImage", typeof(WebImagePage)},

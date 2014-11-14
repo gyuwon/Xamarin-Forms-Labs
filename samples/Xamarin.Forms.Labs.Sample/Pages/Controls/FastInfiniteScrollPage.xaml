@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:Xamarin.Forms.Labs.Sample.ViewModel;assembly=Xamarin.Forms.Labs.Sample"
              xmlns:controls="clr-namespace:Xamarin.Forms.Labs.Controls;assembly=Xamarin.Forms.Labs"
-             Padding="0,0"
-             x:Class="Xamarin.Forms.Labs.Sample.Pages.Controls.InfiniteScrollPage">
+             Padding="5,0"
+             x:Class="Xamarin.Forms.Labs.Sample.Pages.Controls.FastInfiniteScrollPage">
   <Grid>
     <Grid.RowDefinitions>
       <RowDefinition Height="*" />
@@ -21,10 +21,10 @@
                 HorizontalOptions="Center"
                 Command="{Binding Initialize}"
                 Text="Initialize" />
-        <controls:RepeaterView x:TypeArguments="vm:InfiniteScrollItem"
+        <controls:FastRepeaterView x:TypeArguments="vm:InfiniteScrollItem"
                                Spacing="10"
                                ItemsSource="{Binding Items}">
-          <controls:RepeaterView.ItemTemplate>
+          <controls:FastRepeaterView.ItemTemplate>
             <DataTemplate>
               <ViewCell>
                 <StackLayout BackgroundColor="#ffacacac"
@@ -34,8 +34,8 @@
                 </StackLayout>
               </ViewCell>
             </DataTemplate>
-          </controls:RepeaterView.ItemTemplate>
-        </controls:RepeaterView>
+          </controls:FastRepeaterView.ItemTemplate>
+        </controls:FastRepeaterView>
       </StackLayout>
     </controls:ExtendedScrollView>
 

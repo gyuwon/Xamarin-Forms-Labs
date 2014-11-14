@@ -31,7 +31,7 @@ namespace Xamarin.Forms.Labs.Sample.ViewModel
             {
                 _items.Clear();
                 CreateDataSource();
-                await LoadItemsAsync(count: 20);
+                await LoadItemsAsync(count: 5);
             });
 
             PropertyChanged += async (s, e) =>
@@ -47,7 +47,7 @@ namespace Xamarin.Forms.Labs.Sample.ViewModel
                         IsBusy = true;
                         try
                         {
-                            await LoadItemsAsync(count: 10);
+                            await LoadItemsAsync(count: 5);
                         }
                         finally
                         {
