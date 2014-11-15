@@ -41,6 +41,7 @@
     <Compile Include="Behaviors\IGesture.cs" />
     <Compile Include="Controls\FastRepeaterView.cs" />
     <Compile Include="Converter\CollectionEmptyToBool.cs" />
+    <Compile Include="Converter\HeightToMillimeters.cs" />
     <Compile Include="Extensions\CollectionTypeExtension.cs" />
     <Compile Include="Validation\PredicatePriority.cs" />
     <Compile Include="Validation\PropertySetter.cs" />

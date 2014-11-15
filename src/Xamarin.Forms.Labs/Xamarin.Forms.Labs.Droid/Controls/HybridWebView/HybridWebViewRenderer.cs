@@ -58,6 +58,8 @@ namespace Xamarin.Forms.Labs.Controls
             this.Control.LoadUrl(string.Format("javascript: {0}", script));
         }
 
+        
+
         partial void Load(Uri uri)
         {
             if (uri != null)
@@ -171,6 +173,20 @@ namespace Xamarin.Forms.Labs.Controls
             {
                 // the built-in alert is pretty ugly, you could do something different here if you wanted to
                 return base.OnJsAlert(view, url, message, result);
+            }
+
+            /// <summary>
+            /// Overrides the geolocation prompt and accepts the permission.
+            /// </summary>
+            /// <param name="origin">Origin of the prompt.</param>
+            /// <param name="callback">Permission callback.</param>
+            /// <remarks>
+            /// Always grant permission since the app itself requires location
+            /// permission and the user has therefore already granted it.
+            /// </remarks>
+            public override void OnGeolocationPermissionsShowPrompt(string origin, GeolocationPermissions.ICallback callback)
+            {
+                callback.Invoke(origin, true, false);
             }
         }
 

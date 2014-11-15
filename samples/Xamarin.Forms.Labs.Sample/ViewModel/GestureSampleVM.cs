@@ -1,5 +1,5 @@
 ﻿
-namespace Xamarin.Forms.Labs.Sample.ViewModel
+namespace Xamarin.Forms.Labs.Sample
 {
     using System.Collections.ObjectModel;
     using System.IO;

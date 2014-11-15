@@ -99,7 +99,7 @@ namespace Xamarin.Forms.Labs
             }
             else if (this.Version == PhoneType.iPhone6Plus)
             {
-                this.Display = new Display(1920, 1080, 401, 401);
+                this.Display = new Display(2208, 1242, 401 * 1242 / 1080, 401 * 2208 / 1920);
             }
             else if (majorVersion > 4)
             {

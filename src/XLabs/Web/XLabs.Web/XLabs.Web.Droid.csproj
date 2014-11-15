@@ -49,6 +49,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
   <ItemGroup>
+    <Compile Include="HttpHandler.cs" />
     <Compile Include="JsonRestClient.cs" />
     <Compile Include="ProtoBufRestClient.cs" />
     <Compile Include="RestCoreClient.cs" />
@@ -57,6 +58,10 @@
     <ProjectReference Include="..\..\Serialization\XLabs.Serialization\XLabs.Serialization.csproj">
       <Project>{8E7F7522-F018-466A-AA8A-147EE9341BA0}</Project>
       <Name>XLabs.Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\XLabs.Core\XLabs.Core.csproj">
+      <Project>{15D9C404-F7E2-49F0-ACC9-63C4C008C860}</Project>
+      <Name>XLabs.Core</Name>
     </ProjectReference>
     <ProjectReference Include="XLabs.Web.csproj">
       <Project>{D66D0E8A-4350-4F95-90F8-86F2FB1A45A3}</Project>

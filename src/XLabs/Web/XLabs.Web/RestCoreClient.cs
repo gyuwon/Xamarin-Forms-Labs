@@ -248,10 +248,41 @@ namespace XLabs.Web
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new WebResponseException(response.ReasonPhrase);
+                throw new WebResponseException(response.StatusCode, response.ReasonPhrase);
             }
 
             return response;
+        }
+
+
+        public async Task<T> PostAsync<T>(string address)
+        {
+            var response = await this.Client.PostAsync(
+                address,
+                new StringContent("", Encoding.UTF8, this.StringContentType));
+
+            return await GetResponse<T>(response, this.Serializer);
+        }
+
+        public async Task<T> PutAsync<T>(string address)
+        {
+            var response = await this.Client.PutAsync(
+                address,
+                new StringContent("", Encoding.UTF8, this.StringContentType));
+
+            return await GetResponse<T>(response, this.Serializer);
+        }
+
+        public async Task PostAsync(string address)
+        {
+            var response = await this.Client.PostAsync(address, new StringContent("", Encoding.UTF8, this.StringContentType));
+            this.CheckResponse(response);
+        }
+
+        public async Task PutAsync(string address)
+        {
+            var response = await this.Client.PutAsync(address, new StringContent("", Encoding.UTF8, this.StringContentType));
+            this.CheckResponse(response);
         }
     }
 }
